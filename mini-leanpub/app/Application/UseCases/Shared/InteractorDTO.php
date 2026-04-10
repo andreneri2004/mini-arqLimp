@@ -1,6 +1,6 @@
 <?php
 
-namespace Minileanpub\Domain\Book\Entity\Application\UseCases\Shared;
+namespace Minileanpub\Application\UseCases\Shared;
 
 abstract class InteractorDTO
 {
@@ -8,6 +8,7 @@ abstract class InteractorDTO
     {
 
         $reflex = new \ReflectionClass($this);
+        
         $props = $reflex->getProperties(\ReflectionProperty::IS_PUBLIC);
 
         $propsValues = [];

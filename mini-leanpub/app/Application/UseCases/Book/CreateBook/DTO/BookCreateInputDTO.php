@@ -1,8 +1,8 @@
 <?php
 
-namespace Minileanpub\Domain\Book\Entity\Application\UseCases\Book\CreateBook\DTO;
+namespace Minileanpub\Application\UseCases\Book\CreateBook\DTO;
 
-use Minileanpub\Domain\Book\Entity\Application\UseCases\Shared\InteractorDTO;
+use Minileanpub\Application\UseCases\Shared\InteractorDTO;
 
 class BookCreateInputDTO extends InteractorDTO
 {
@@ -10,7 +10,7 @@ class BookCreateInputDTO extends InteractorDTO
         public string $id,
         public string $title,
         public string $description,
-        public float $price,
+        public string $price,
         public string $bookPath,
         public string $mimeType
     ) {}

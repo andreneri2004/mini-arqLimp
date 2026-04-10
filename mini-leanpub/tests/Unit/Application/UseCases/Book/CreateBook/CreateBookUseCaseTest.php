@@ -3,8 +3,8 @@
 namespace Tests\Minileanpub\Unit\Application\UseCases\Book\CreateBook;
 
 use App\Models\Book;
-use Minileanpub\Domain\Book\Entity\Application\UseCases\Book\CreateBook\CreateBookUseCase;
-use Minileanpub\Domain\Book\Entity\Application\UseCases\Book\CreateBook\DTO\{BookCreateInputDTO, BookCreateOutputDTO};
+use Minileanpub\Application\UseCases\Book\CreateBook\CreateBookUseCase;
+use Minileanpub\Application\UseCases\Book\CreateBook\DTO\{BookCreateInputDTO, BookCreateOutputDTO};
 use Minileanpub\infrastructure\Repository\Book\BookEloquentRepository;
 
 
@@ -43,6 +43,7 @@ class CreateBookUseCaseTest extends TestCase
 
     private function getRepositortyMock()
     {
+        //classe generica para simular o retorno do banco de dados, não é o model, é a interface, mas como a interface tem o model, fack no model.
         $return = new \stdClass;
         $return->id = '64b25e92-39f5-48df-8b74-19a302450f5c';
         $return->title = 'Meu Livro';
