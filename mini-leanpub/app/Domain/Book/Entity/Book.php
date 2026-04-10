@@ -31,8 +31,8 @@ class Book
             throw new \Exception('Invalid Entity: Path Book');
         }
 
-        // if ($this->mimeType != 'text/markdown') {
-        //     throw new \Exception('Invalid Entity: MimeType');
-        // }
+        if ($this->mimeType != 'text/markdown') {
+            throw new \Exception('Invalid Entity: MimeType');
+        }
     }
 }

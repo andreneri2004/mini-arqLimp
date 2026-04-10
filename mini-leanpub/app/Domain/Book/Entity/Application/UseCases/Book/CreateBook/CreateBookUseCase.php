@@ -24,9 +24,9 @@ class CreateBookUseCase
             $data['mimeType']
         );
 
-        $result = $entity->validate();
+        $entity->validate();
 
-        $this->repository->create($data);
+         $result = $this->repository->create($data);
 
         return new BookCreateOutputDTO($result->id, $result->title);
     }
