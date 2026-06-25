@@ -14,9 +14,9 @@ class CreateBookUseCaseTest extends TestCase
 {
     public function test_should_create_a_new_book_via_use_case()
     {
-        //parte 2 - cenário planejado
+   
         $repository = $this->getRepositortyMock();
-        // 1
+ 
         $input = new BookCreateInputDTO(
             '64b25e92-39f5-48df-8b74-19a302450f5c',
             'Meu Livro',
@@ -26,14 +26,13 @@ class CreateBookUseCaseTest extends TestCase
             'text/markdown'
         );
 
-        //COMEÇA AQUI O TESTE
+  
         $useCase = new CreateBookUseCase($input, $repository);
 
-        $result = $useCase->handle(); // ao execultar esse método..
+        $result = $useCase->handle(); 
 
-        $this->assertInstanceOf(BookCreateOutputDTO::class, $result); // verifica isso.
+        $this->assertInstanceOf(BookCreateOutputDTO::class, $result);
 
-        // Outro ponto planejado
 
         $data = $result->getData();
 
@@ -43,7 +42,6 @@ class CreateBookUseCaseTest extends TestCase
 
     private function getRepositortyMock()
     {
-        //classe generica para simular o retorno do banco de dados, não é o model, é a interface, mas como a interface tem o model, fack no model.
         $return = new \stdClass;
         $return->id = '64b25e92-39f5-48df-8b74-19a302450f5c';
         $return->title = 'Meu Livro';
@@ -52,14 +50,13 @@ class CreateBookUseCaseTest extends TestCase
         $return->bookPath = 'path_book';
         $return->mimeType = 'text/markdown';
         
-        $model = $this->createMock(Book::class); // Começa aqui ---fack no model, respeitar uma interface.
+        $model = $this->createMock(Book::class);
 
         $mock = $this->getMockBuilder(BookEloquentRepository::class)
             ->onlyMethods(['create'])
             ->setConstructorArgs([$model])
             ->getMock();
 
-        // comportamento
 
         $mock->expects($this->once())
             ->method('create')

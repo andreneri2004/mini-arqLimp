@@ -6,19 +6,17 @@ use Minileanpub\Domain\Book\Entity\Book;
 
 use Minileanpub\Application\UseCases\Book\CreateBook\DTO\{BookCreateInputDTO, BookCreateOutputDTO};
 
-use Minileanpub\Domain\Book\Repository\BookRepositoryInterface;
+use Minileanpub\Domain\Book\Repository\Book\BookRepositoryInterface;
 
 class CreateBookUseCase
 {
     public function __construct(private BookCreateInputDTO $input, private BookRepositoryInterface $repository) {}
 
-    //começa aqui antes de pegar o construtor
+
     public function handle(): BookCreateOutputDTO
     {
-        //metodo de paridade de iputs e outputs, para não expor o DTO, só os dados.
-        $data = $this->input->getData(); 
+        $data = $this->input->getData();
 
-        // entidade para validar regra de negocio, não é validação de formulário...
         $entity = new Book(
             $data['id'],
             $data['title'],
