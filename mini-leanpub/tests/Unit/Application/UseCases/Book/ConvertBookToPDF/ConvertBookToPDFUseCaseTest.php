@@ -3,11 +3,11 @@
 namespace Tests\MiniLeanpub\Unit\Application\UseCases\Book\ConvertBookToPDF;
 
 use App\Models\Book;
-use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\ConvertBookToPDFUseCase;
-use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\DTO\ConvertBookToPDFInputDTO;
+use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\ConvertBookToPDFUserCase;
+use Minileanpub\Application\UseCases\Book\ConvertBookToPDF\DTO\ConvertBookToPDFInputDTO;
 use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\DTO\ConvertBookToPDFOutputDTO;
 use MiniLeanpub\Infrastructure\Queue\BookConverterQueueSender;
-use MiniLeanpub\Infrastructure\Repository\BookEloquentRepository;
+use Minileanpub\infrastructure\Repository\Book\BookEloquentRepository;
 use PHPUnit\Framework\TestCase;
 
 class ConvertBookToPDFUseCaseTest extends TestCase
@@ -18,7 +18,7 @@ class ConvertBookToPDFUseCaseTest extends TestCase
         $repository = $this->getRepositoryMock();
         $queueSender  = $this->getQueueSenderMock();
 
-        $useCase = new ConvertBookToPDFUseCase($input, $repository, $queueSender);
+        $useCase = new ConvertBookToPDFUserCase($input, $repository, $queueSender);
         $result = $useCase->handle();
 
         $this->assertInstanceOf(ConvertBookToPDFOutputDTO::class, $result);
