@@ -5,7 +5,7 @@ namespace Tests\Minileanpub\Unit\Application\UseCases\Book\CreateBook;
 use App\Models\Book;
 use Minileanpub\Application\UseCases\Book\CreateBook\CreateBookUseCase;
 use Minileanpub\Application\UseCases\Book\CreateBook\DTO\{BookCreateInputDTO, BookCreateOutputDTO};
-use Minileanpub\infrastructure\Repository\Book\BookEloquentRepository;
+use Minileanpub\Infrastructure\Repository\Book\BookEloquentRepository;
 
 
 use PHPUnit\Framework\TestCase;

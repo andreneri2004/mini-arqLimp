@@ -5,7 +5,7 @@ namespace MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF;
 use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\DTO\ConvertBookToPDFInputDTO;
 use MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\DTO\ConvertBookToPDFOutputDTO;
 use MiniLeanpub\Domain\Shared\Queue\QueueInterface;
-use Minileanpub\Domain\Book\Repository\BookRepositoryInterface;
+use Minileanpub\Domain\Book\Repository\Book\BookRepositoryInterface;
 
 class ConvertBookToPDFUserCase
 {
@@ -22,6 +22,8 @@ class ConvertBookToPDFUserCase
         $book = $this->repository->find($this->input->getData()['bookCode']);
 
         $this->queue->sendToQueue($book->book_code);
+
+        //storage/app/books/uuid-v4/cha
 
         return new ConvertBookToPDFOutputDTO($book->book_code);
     }

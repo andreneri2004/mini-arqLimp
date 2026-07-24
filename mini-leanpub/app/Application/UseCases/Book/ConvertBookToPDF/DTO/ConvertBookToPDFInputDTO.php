@@ -2,11 +2,9 @@
 
 namespace MiniLeanpub\Application\UseCases\Book\ConvertBookToPDF\DTO;
 
-use MiniLeanpub\Application\UseCases\Shared\InteractorDTO;
+use Minileanpub\Application\UseCases\Shared\InteractorDTO;
 
 class ConvertBookToPDFInputDTO extends InteractorDTO
 {
-    public function __construct(public string $bookCode)
-    {
-    }
+    public function __construct(public string $bookCode) {}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Minileanpub\Domain\Book\Repository;
+namespace Minileanpub\Domain\Book\Repository\Book;
 
 use Minileanpub\Domain\Shared\Repository\RepositoryInterface;
 
